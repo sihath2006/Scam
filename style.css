@@ -1,0 +1,379 @@
+:root {
+    --primary-color: #ff4d6d;
+    --secondary-color: #ff8fa3;
+    --bg-color-1: #ffccd5;
+    --bg-color-2: #fff0f3;
+    --text-color: #590d22;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, var(--bg-color-1), var(--bg-color-2), #ffe3e3);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Background Floating Hearts */
+.background-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.heart-bg {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.6);
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(110vh) scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0.8;
+    }
+}
+
+/* Main Container */
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+/* Glass Card */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+}
+
+.image-area {
+    margin-bottom: 20px;
+}
+
+.hero-image {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    color: var(--primary-color);
+    font-size: 3rem;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+/* Buttons */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* Safety for small screens */
+    position: relative;
+    /* For button absolute positioning context if needed, but we'll use fixed/absolute for NO */
+    min-height: 60px;
+    /* Reserve space */
+}
+
+.btn {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: 'Outfit', sans-serif;
+}
+
+.btn-yes {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    z-index: 10;
+    /* Keep Yes on top */
+}
+
+.btn-yes:hover {
+    background-color: #ff2a51;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
+}
+
+.btn-no {
+    background-color: white;
+    color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    /* Start relative */
+    z-index: 50;
+    /* Ensure it stays on top when moving */
+}
+
+/* Success View */
+#success-view.hidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#success-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 204, 213, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.success-card {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.success-image {
+    width: 180px;
+    margin-bottom: 15px;
+}
+
+/* Letter Button */
+.btn-letter {
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.btn-letter:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Letter Modal */
+#letter-modal.hidden {
+    display: none;
+    opacity: 0;
+}
+
+#letter-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s forwards;
+}
+
+.letter-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+}
+
+.letter-container {
+    position: relative;
+    background: linear-gradient(135deg, #fff9f0, #ffe8e8);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid var(--primary-color);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px) scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.close-letter {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    line-height: 1;
+    padding: 0;
+}
+
+.close-letter:hover {
+    background: #ff2a51;
+    transform: rotate(90deg);
+}
+
+.letter-title {
+    font-family: 'Dancing Script', cursive;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 15px;
+}
+
+.letter-body {
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-color);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.letter-body p {
+    margin-bottom: 15px;
+}
+
+.letter-body p:first-child {
+    font-style: italic;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.letter-signature {
+    margin-top: 30px;
+    text-align: right;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+/* Scrollbar styling for letter */
+.letter-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.letter-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.letter-container::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 10px;
+}
+
+.letter-container::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}

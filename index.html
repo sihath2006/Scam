@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-hearts"></div>
+
+    <main class="container">
+        <div class="glass-card" id="main-card">
+            <div class="content-wrapper">
+                <div class="image-area">
+                    <!-- Cute animated gif or sticker placeholder -->
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGIwZHIxNHR6d2Z4b3M2MzV6cWkxZ2V6aDJ5Z3J5OXJ5Z3J5OXJ5OXJ5OXJ5OXJ5OXJ5OXJ5OXJ5OXJ5TyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif"
+                        alt="Cute Bears" class="hero-image">
+                </div>
+                <h1 class="title">OmashaWill you be my Valentine?</h1>
+
+
+                <div class="buttons-container">
+                    <button id="yes-btn" class="btn btn-yes">Yes, absolutely! 💖</button>
+                    <button id="no-btn" class="btn btn-no">No</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Message (Overlay) -->
+        <div id="success-view" class="hidden">
+            <div class="glass-card success-card">
+                <img src="./couple.webp"
+                    alt="Happy Bears" class="success-image">
+                <h1>YAAAAY! 🎉</h1>
+                <p>Can't wait for our date! ❤️</p>
+                <button id="letter-btn" class="btn btn-letter">A small letter 💌</button>
+            </div>
+        </div>
+
+        <!-- Letter Modal -->
+        <div id="letter-modal" class="hidden">
+            <div class="letter-overlay" id="letter-overlay"></div>
+            <div class="letter-container">
+                <button class="close-letter" id="close-letter">×</button>
+                <div class="letter-content">
+                    <h2 class="letter-title">To My Valentine 💕</h2>
+                    <div class="letter-body">
+                        <p>My Dearest,</p>
+                        <p>From the moment I met you, my world became brighter. Your smile lights up even my darkest
+                            days, and your laughter is the sweetest melody I've ever heard.</p>
+                        <p>Every moment spent with you feels like a beautiful dream I never want to wake up from. You
+                            make ordinary days extraordinary just by being in them.</p>
+                        <p>This Valentine's Day, I want you to know that you mean the world to me. Thank you for being
+                            you, for your kindness, your warmth, and for choosing to spend this special day with me.</p>
+                        <p>I can't wait to create more beautiful memories together. Here's to us, to love, and to all
+                            the adventures that await us! 🌹</p>
+                        <p class="letter-signature">Forever yours,<br>Your Valentine ❤️</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
